@@ -7,6 +7,7 @@ require 'openssl'
 module ExmoApi
   class Request
     attr_reader :api_method
+    attr_writer :config
 
     def initialize(api_method, params = {})
       @api_method = api_method
@@ -65,7 +66,7 @@ module ExmoApi
     end
 
     def config
-      ExmoApi.configuration
+      @config ||= ExmoApi.configuration
     end
   end
 end
